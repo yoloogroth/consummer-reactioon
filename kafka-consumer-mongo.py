@@ -22,15 +22,15 @@ uri = "mongodb+srv://adsoft:adsoft-sito@cluster0.kzghgph.mongodb.net/?retryWrite
 
 # Connect to MongoDB and pizza_data database
 
-#try:
-#   client = MongoClient(uri, server_api=ServerApi('1'))
-#   client.admin.command('ping')
-#   print("Pinged your deployment. You successfully connected to MongoDB!")
+try:
+    client = MongoClient(uri, server_api=ServerApi('1'))
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
 
-#   db = client.memes
-#   print("MongoDB Connected successfully!")
-#except:
-#   print("Could not connect to MongoDB")
+    db = client.memes
+    print("MongoDB Connected successfully!")
+except:
+    print("Could not connect to MongoDB")
 
 consumer = KafkaConsumer('test',bootstrap_servers=['my-kafka-0.my-kafka-headless.kafka-adsoftsito.svc.cluster.local:9092'])
 # Parse received data from Kafka
