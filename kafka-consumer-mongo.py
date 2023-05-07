@@ -43,7 +43,7 @@ for msg in consumer:
     try:
        meme_rec = {'name':name }
        print (meme_rec)
-       # meme_id = db.memes_info.insert_one(meme_rec)
-       #print("Data inserted with record ids", meme_id)
+       meme_id = db.memes_info.insert_one(meme_rec)
+       print("Data inserted with record ids", meme_id)
     except:
        print("Could not insert into MongoDB")
