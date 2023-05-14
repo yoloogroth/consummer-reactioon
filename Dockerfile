@@ -2,8 +2,9 @@ FROM python:3
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 RUN curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
-RUN install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 RUN lsb_release -a
+RUN ls -la
+RUN install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 RUN chmod +x kubectl
 RUN mkdir -p ~/.local/bin
 RUN mv ./kubectl ~/.local/bin/kubectl
