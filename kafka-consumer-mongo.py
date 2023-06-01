@@ -8,7 +8,7 @@ from pymongo.server_api import ServerApi
 
 import json
 
-uri = "mongodb+srv://ygroth259:yolo123@cluster0.ah6hyg7.mongodb.net/?retryWrites=true&w=majority"
+uri = "mongodb+srv://ygroth259:yolo123@cluster0.ah6hyg7.mongodb.net/?retryWrites=true&w=majority";
 
 #Local = "mongodb://127.0.0.1:27017"
 #URL del profe = "mongodb+srv://adsoft:adsoft-sito@cluster0.kzghgph.mongodb.net/?retryWrites=true&w=majority"
@@ -36,13 +36,10 @@ except:
     print("Could not connect to MongoDB")
 
 
-    consumer = KafkaConsumer('test',bootstrap_servers=[
-     'my-kafka-0.my-kafka-headless.yoloogroth.svc.cluster.local:9092'
-    ])
-
+consumer = KafkaConsumer('reactions',bootstrap_servers=['my-kafka-0.my-kafka-headless.yoloogroth.svc.cluster.local:9092'])
 #'my-kafka-0.my-kafka-headless.kafka-adsoftsito.svc.cluster.local:9092'])
 # Parse received data from Kafka
-    for msg in consumer:
+for msg in consumer:
     record = json.loads(msg.value)
     print(record)
     userId = record["userId"]
